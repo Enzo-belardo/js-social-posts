@@ -63,7 +63,7 @@ posts.forEach((element, index) =>{
     <div class="post__header">
         <div class="post-meta">                    
             <div class="post-meta__icon">
-                <img class="profile-pic"" ${element.image}" alt=" image ${index}">                  
+                <img class="profile-pic" src=" ${element.author.image}" alt=" image ${index}">                  
             </div>
             <div class="post-meta__data">
                 <div class="post-meta__author">Phil Mangione</div>
@@ -73,7 +73,7 @@ posts.forEach((element, index) =>{
     </div>
     <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
     <div class="post__image">
-        <img src="https://unsplash.it/600/300?image=171" alt="">
+        <img src="${element.media}" alt=" image ${index}">
     </div>
     <div class="post__footer">
         <div class="likes js-likes">
