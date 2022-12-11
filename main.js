@@ -56,7 +56,10 @@ const posts = [
     }
 ];
 
-const post = document.querySelector('div.posts-list')
+const post = document.getElementById('container')
+
+const newElement = document.createElement("div");
+newElement.classList.add("posts");
 
 posts.forEach((element, index) =>{
     post.innerHTML += ` <div class="post">
@@ -66,27 +69,38 @@ posts.forEach((element, index) =>{
                 <img class="profile-pic" src=" ${element.author.image}" alt=" image ${index}">                  
             </div>
             <div class="post-meta__data">
-                <div class="post-meta__author">Phil Mangione</div>
-                <div class="post-meta__time">4 mesi fa</div>
+                <div class="post-meta__author"> ${element.author.name} </div>
+                <div class="post-meta__time"> ${element.created} </div>
             </div>                    
         </div>
     </div>
-    <div class="post__text">Placeat libero ipsa nobis ipsum quibusdam quas harum ut. Distinctio minima iusto. Ad ad maiores et sint voluptate recusandae architecto. Et nihil ullam aut alias.</div>
+    <div class="post__text"> ${element.content}</div>
     <div class="post__image">
         <img src="${element.media}" alt=" image ${index}">
     </div>
     <div class="post__footer">
         <div class="likes js-likes">
             <div class="likes__cta">
-                <a class="like-button  js-like-button" href="#" data-postid="1">
+                <a class="like-button  js-like-button" href="#" data-postid=${element.id}>
                     <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                     <span class="like-button__label">Mi Piace</span>
                 </a>
             </div>
             <div class="likes__counter">
-                Piace a <b id="like-counter-1" class="js-likes-counter">80</b> persone
+                Piace a <b id="like-counter-1" class="js-likes-counter">${element.likes}</b> persone
             </div>
         </div> 
     </div>            
-</div> -->`
+</div>`
+
+post.append(newElement)
 })
+
+const like = document.querySelector('.like-button');
+
+like.addEventListener('click', function(){
+    like.classList.add('like-button--liked');
+    
+});
+    
+
